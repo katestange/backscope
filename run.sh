@@ -9,7 +9,7 @@ export FLASK_RUN_PORT=5001
 source "./.scripts/cmd_options"
 
 if [ $# -gt 0 ]; then
-        probe_commands && scan_option $@  || show_help exit 1
+        probe_commands && cmd_options $@  || show_help exit 1
 else
         show_help
 fi

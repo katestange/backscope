@@ -2,11 +2,11 @@
 
 source "`pwd`/.scripts/nscore_update"
 source "`pwd`/.scripts/common"
-source "`pwd`/.scripts/flask"
+source "`pwd`/.scripts/run_flask"
 
 
 
-scan_option () {
+cmd_options () {
         while test $# -gt 0; do
                 case "$1" in
                         -h|--help)
