@@ -12,12 +12,35 @@
     {% block scripts %}
     {% endblock %}
 </head>
+
 <body>
     <h1>Welcome to Numberscope</h1>
     <a href="{{ url_for('tool_page') }}">Tool Page</a>
+    <!-- Navbar -->
+      <div class="w3-bar w3-theme-dark-blue w3-padding w3-card">
+        <a href="homepage.html" class="w3-bar-item w3-button w3-hover-orange">
+        <img class="w3-image" src="resources/MicroscopeLogo.png" width="210" height="40">
+        <div class="w3-right w3-padding w3-wide">
+          <a href="toolPage.html" class="w3-bar-item w3-button w3-hover-orange"><b>The Scope</b></a>
+          <a href="the specimens.html" class="w3-bar-item w3-button w3-hover-orange"><b>Specimens</b></a>
+          <a href="usermanuals.html" class="w3-bar-item w3-button w3-hover-orange"><b>User Manual</b></a>
+        </div>
+     </div>
+
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide" style="max-width:2500px;" id="home">
+      <img class="w3-image" src="resources/homepage/backgroundx.jpg" width="2500" height="400">
+      <div class="w3-display-middle w3-margin-top w3-center" style="max-width:3500px;">
+         <h1 class="w3-xxlarge w3-text"><span class="w3-padding w3-white w3-opacity-min"><b>NUMBERSCOPE </b><br></span>
+         <span class="w3-text" width="2500">THE ONLINE TOOL FOR VISUALIZING INTEGER SEQUENCES</span></br></h1>
+         <a href="toolPage.html" class="w3-button w3-round w3-padding-large w3-large w3-margin-top w3-theme-light-orange w3-hover-pale-red w3-hover-text-orange" >Get Started!</a>
+      </div>
+    </header>
     <main>
         {% block main %}
         {% endblock %}
     </main>
+
+
 </body>
 </html>
