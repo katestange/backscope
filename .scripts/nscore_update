@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ARCHIVE="https://github.com/katestange/Numberscope"
+DIR_ARCH="Numberscope"
+CACHE="`pwd`/.cache"
+ROOT="`pwd`"
+
+nscore_update () {
+        mkdir $CACHE
+        pushd $CACHE
+
+        git clone --single-branch --branch NScore $ARCHIVE
+        mv "`pwd`/$DIR_ARCH/NScore_bundle.js" "$ROOT/static/js/NScore.js"
+
+        popd
+        rm -rf $CACHE
+}

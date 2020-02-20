@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Prefix for minified NSCore
+MIN_PREFIX="`pwd`/static/js/NScore.js"
+
+# Run Application
+run_flask () {
+        if [[ ! -f $MIN_PREFIX ]]; then
+          echo "Couldn't find NScore, please update"
+        fi
+
+        flask run && \
+          return 0 || return 1
+}

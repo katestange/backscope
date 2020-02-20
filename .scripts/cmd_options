@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+source "`pwd`/.scripts/nscore_update"
+source "`pwd`/.scripts/common"
+source "`pwd`/.scripts/flask"
+
+
+
+scan_option () {
+        while test $# -gt 0; do
+                case "$1" in
+                        -h|--help)
+                                show_help
+                                exit 0
+                                ;;
+                        -f|--flask)
+                                run_flask
+                                exit 0
+                                ;;
+                        -u|--update)
+                                nscore_update
+                                exit 0
+                                ;;
+                        *)
+                                break
+                                ;;
+                esac
+        done
+}

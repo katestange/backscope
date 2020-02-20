@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-echo 'Starting up Numberscope Server'
+# Environment variables
 FLASK_ENV=development
 export FLASK_ENV
 export FLASK_APP=run.py
 export FLASK_RUN_PORT=5001
-flask run
-echo 'Running on port 5001'
 
-# Idea here: build script for getting numberscope project and importing the relevant js files
+source "./.scripts/cmd_options"
+
+if [ $# -gt 0 ]; then
+        probe_commands && scan_option $@  || show_help exit 1
+else
+        show_help
+fi

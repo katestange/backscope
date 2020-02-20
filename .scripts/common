@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# System Check - Check commands and system compatability
+CMDS=("flask --version" "npm --version" "git --version")
+
+
+# Probe for system commands - make sure all
+# executables exist on the system
+probe_commands () {
+        for ((i = 0; i < ${#CMDS[@]}; i++))
+        do
+                ${CMDS[$i]} > /dev/null 2>&1 || \
+                  { echo >&2 "Requires ${CMDS[$i]} but not installed"; return 1;} 
+        done
+        return 0
+}
+
+show_help () {
+        printf "
+Options:
+        
+        -h --help               Show this help menu
+        -u --update             Update NScore
+        -f --flask              Run flask app
+        "
+        echo ""
+}
