@@ -26,3 +26,10 @@ def index():
 @bp.route("/vuetest", methods=["GET"])
 def vuetest():
     return jsonify({"Answer" : "This is a test", "Data" : [4.5123, 4.123, 9.123, 1.12309]})
+
+@bp.route("/seqnaturals", methods=["GET"])
+def seqnaturals():
+    seq = []
+    for i in range(0,10000):
+        seq.append(i)
+    return jsonify({"status" : "success", "Data" : seq})
