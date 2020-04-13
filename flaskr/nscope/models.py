@@ -33,9 +33,12 @@ class Sequence(db.Model):
 
     id = db.Column(db.String, unique=True, nullable=False, primary_key=True)
     name = db.Column(db.String, unique=False, nullable=True)
-    first_100_entries = db.Column(db.ARRAY(db.INTEGER), unique=False, nullable=False)
+    code = db.Column(db.LargeBinary, unique=False, nullable=True)
 
     @classmethod
     def get_seq_by_id(self, id):
         return self.query.filter_by(id=id).first()
 
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()
